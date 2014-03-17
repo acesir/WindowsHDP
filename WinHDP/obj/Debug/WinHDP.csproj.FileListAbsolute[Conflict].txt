@@ -1,0 +1,15 @@
+c:\users\adis\documents\visual studio 2013\Projects\WinHDP\WinHDP\bin\Debug\WinHDP.exe.config
+c:\users\adis\documents\visual studio 2013\Projects\WinHDP\WinHDP\bin\Debug\WinHDP.exe
+c:\users\adis\documents\visual studio 2013\Projects\WinHDP\WinHDP\bin\Debug\WinHDP.pdb
+c:\users\adis\documents\visual studio 2013\Projects\WinHDP\WinHDP\obj\Debug\WinHDP.csprojResolveAssemblyReference.cache
+c:\users\adis\documents\visual studio 2013\Projects\WinHDP\WinHDP\obj\Debug\WinHDP.exe
+c:\users\adis\documents\visual studio 2013\Projects\WinHDP\WinHDP\obj\Debug\WinHDP.pdb
+C:\WinHDP\WinHDP\bin\Debug\WinHDP.exe.config
+C:\WinHDP\WinHDP\obj\Debug\WinHDP.exe
+C:\WinHDP\WinHDP\obj\Debug\WinHDP.pdb
+C:\WinHDP\WinHDP\bin\Debug\WinHDP.exe
+C:\WinHDP\WinHDP\bin\Debug\WinHDP.pdb
+C:\WinHDP\WinHDP\obj\Debug\WinHDP.csprojResolveAssemblyReference.cache
+C:\GoogleDrive\Code\WinHDP\WinHDP\bin\Debug\WinHDP.exe.config
+C:\GoogleDrive\Code\WinHDP\WinHDP\obj\Debug\WinHDP.exe
+C:\GoogleDrive\Code\WinHDP\WinHDP\obj\Debug\WinHDP.pdb
