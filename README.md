@@ -1,7 +1,7 @@
 WindowsHDP
 ==========
 
-Automated console installer for Hortonworks Data Platform on windows. Can be used to install multi-node clusters, uninstall clusters or add nodes to an existing cluster.
+Automated console installer for Hortonworks Data Platform on Windows. Can be used to install multi-node clusters, uninstall clusters or add nodes to an existing cluster.
 
 
 
@@ -13,7 +13,7 @@ This installer can be used to deploy HDP windows multi-node clusters, uninstall 
 Structure
 =========
 
-The prebuilt package for installation is located at https://github.com/acesir/WindowsHDP/tree/master/PrebuiltPackage abd contains all the files you need to deploy HDP 2.0 on Windows except the HDP msi package (is too large) which will need to downloaded manually and added. In the WinHDP folder you fill find the executable for the console application called WinHDP.exe and in the Files directory you will find all the required software (except HDP msi) files as well as a sample clusterproperties file which will need to be edited based on the cluster you are deploying too.
+The prebuilt package for installation is located at https://github.com/acesir/WindowsHDP/tree/master/PrebuiltPackage and contains all the files you need to deploy HDP 2.0 on Windows except the HDP msi package (is too large) which will need to downloaded manually and added. In the WinHDP folder you will find the executable for the console application called WinHDP.exe and in the Files directory you will find all the required software (except HDP msi) files as well as a sample clusterproperties file which will need to be edited based on the cluster you are deploying too.
 
 
 Step-ByStep Use
