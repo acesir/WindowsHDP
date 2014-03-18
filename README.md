@@ -31,9 +31,8 @@ Step-ByStep Use
 
 Add Node(s) to an existing cluster
 ==================================
-
 * Choose 3. Add Node
-* Add nodes and services in the following format $servicename=nodename1,nodename2|$servicename=nodename1
-* $servicename needs to be the service name from the clusterproperties.txt file
-* example: $SLAVE_HOSTS=node3,node4,node5|$FLUME_HOSTS=node3,node4|$HBASE_REGIONSERVERS=node5
+* Add nodes and services in the following format `$servicename=nodename1,nodename2|$servicename=nodename1`
+* `$servicename` needs to be the service name from the clusterproperties.txt file
+* example: `$SLAVE_HOSTS=node3,node4,node5|$FLUME_HOSTS=node3,node4|$HBASE_REGIONSERVERS=node5`
 * finally, hit enter and wait for the installation to finish
