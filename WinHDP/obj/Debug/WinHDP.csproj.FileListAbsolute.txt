@@ -20,3 +20,6 @@ C:\GoogleDrive\Code\WinHDP\WinHDP\bin\Debug\WinHDP.pdb
 C:\GoogleDrive\Code\WinHDP\WinHDP\obj\Debug\WinHDP.exe
 C:\GoogleDrive\Code\WinHDP\WinHDP\obj\Debug\WinHDP.pdb
 C:\GoogleDrive\Code\WinHDP\WinHDP\obj\Debug\WinHDP.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\WindowsHDP\WinHDP\bin\Debug\WinHDP.exe.config
+C:\Users\Administrator\Documents\GitHub\WindowsHDP\WinHDP\obj\Debug\WinHDP.exe
+C:\Users\Administrator\Documents\GitHub\WindowsHDP\WinHDP\obj\Debug\WinHDP.pdb
