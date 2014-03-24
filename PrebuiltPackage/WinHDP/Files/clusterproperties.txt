@@ -31,3 +31,4 @@ HIVE_DB_PASSWORD=hive
 #Oozie properties
 OOZIE_DB_NAME=oozie
 OOZIE_DB_USERNAME=oozie
+OOZIE_DB_PASSWORD=oozie
