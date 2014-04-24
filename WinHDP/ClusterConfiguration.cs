@@ -32,6 +32,7 @@ namespace WinHDP
                 hostServices.Add("HIVE_SERVER_HOST", "");
                 hostServices.Add("OOZIE_SERVER_HOST", "");
                 hostServices.Add("WEBHCAT_HOST", "");
+                hostServices.Add("KNOX_HOST", "");
                 hostServices.Add("SLAVE_HOSTS", "");
                 hostServices.Add("HOSTS", "");
 

@@ -4898,3 +4898,364 @@ INFO  2014-03-10 08:48:17,638 358204ms Global                 ExecuteRemote     
 INFO  2014-03-10 08:48:17,638 358204ms Global                 Install            - WINNODE4 install ended with thread: 1
 INFO  2014-03-10 08:48:25,184 365750ms Global                 ExecuteRemote      - 
 INFO  2014-03-10 08:48:25,184 365750ms Global                 Install            - WINNODE3 install ended with thread: 0
+INFO  2014-03-28 09:54:54,021  2281ms Global                 MainOptions        - HDP Uninstall starting...
+INFO  2014-03-28 09:54:54,083  2343ms Global                 HDPInstall         - HDP Install starting...
+INFO  2014-03-28 09:54:55,098  3359ms Global                 ExecuteRemote      - Running remote command: invoke-command -computername WINNODE2 -scriptblock {Set-item wsman:localhost\client\trustedhosts -value "WINNODE3,WINNODE4,WINNODE5" -force;Get-item wsman:localhost\client\trustedhosts}
+INFO  2014-03-28 09:54:57,692  5953ms Global                 ExecuteRemote      - 
+
+   WSManConfig: Microsoft.WSMan.Management\WSMan::localhost\Client
+
+Type            Name                           SourceOfValue   Value    PSComput
+                                                                        erName  
+----            ----                           -------------   -----    --------
+System.String   TrustedHosts                                   WINNO... WINNODE2
+
+
+
+INFO  2014-03-28 09:55:30,024 38284ms Global                 ExecuteRemote      - Running remote command: invoke-command -computername WINNODE3 -scriptblock {Set-item wsman:localhost\client\trustedhosts -value "WINNODE3,WINNODE4,WINNODE5" -force;Get-item wsman:localhost\client\trustedhosts}
+INFO  2014-03-28 09:55:32,692 40953ms Global                 ExecuteRemote      - 
+
+   WSManConfig: Microsoft.WSMan.Management\WSMan::localhost\Client
+
+Type            Name                           SourceOfValue   Value    PSComput
+                                                                        erName  
+----            ----                           -------------   -----    --------
+System.String   TrustedHosts                                   WINNO... WINNODE3
+
+
+
+INFO  2014-03-28 09:55:32,788 41048ms Global                 ExecuteRemote      - Running remote command: invoke-command -computername WINNODE4 -scriptblock {Set-item wsman:localhost\client\trustedhosts -value "WINNODE3,WINNODE4,WINNODE5" -force;Get-item wsman:localhost\client\trustedhosts}
+INFO  2014-03-28 09:55:39,833 48094ms Global                 ExecuteRemote      - 
+
+   WSManConfig: Microsoft.WSMan.Management\WSMan::localhost\Client
+
+Type            Name                           SourceOfValue   Value    PSComput
+                                                                        erName  
+----            ----                           -------------   -----    --------
+System.String   TrustedHosts                                   WINNO... WINNODE4
+
+
+
+INFO  2014-03-28 09:55:39,927 48188ms Global                 ExecuteRemote      - Running remote command: invoke-command -computername WINNODE5 -scriptblock {Set-item wsman:localhost\client\trustedhosts -value "WINNODE3,WINNODE4,WINNODE5" -force;Get-item wsman:localhost\client\trustedhosts}
+INFO  2014-03-28 09:55:40,474 48735ms Global                 ExecuteRemote      - 
+
+   WSManConfig: Microsoft.WSMan.Management\WSMan::localhost\Client
+
+Type            Name                           SourceOfValue   Value    PSComput
+                                                                        erName  
+----            ----                           -------------   -----    --------
+System.String   TrustedHosts                                   WINNO... WINNODE5
+
+
+
+INFO  2014-03-28 09:55:41,051 49312ms Global                 ExecuteRemote      - Running remote command: invoke-command -computername WINNODE3 -scriptblock {netsh advfirewall firewall add rule name=HDP_NameNodeWebUI_http dir=in action=allow protocol=TCP localport=50070;
+            netsh advfirewall firewall add rule name=HDP_NameNodeWebUI_https dir=in action=allow protocol=TCP localport=50470;
+            netsh advfirewall firewall add rule name=HDP_NameNodeMetadataService dir=in action=allow protocol=TCP localport=8020-9000;
+            netsh advfirewall firewall add rule name=HDP_DataNodeWebUI dir=in action=allow protocol=TCP localport=50075;
+            netsh advfirewall firewall add rule name=HDP_DataNodeSecureHTTP dir=in action=allow protocol=TCP localport=50475;
+            netsh advfirewall firewall add rule name=HDP_DataNodeDataTransfer dir=in action=allow protocol=TCP localport=50010;
+            netsh advfirewall firewall add rule name=HDP_DataNodeMetadataOps dir=in action=allow protocol=TCP localport=50020;
+            netsh advfirewall firewall add rule name=HDP_SecondaryNameNode dir=in action=allow protocol=TCP localport=50090;
+            netsh advfirewall firewall add rule name=HDP_ResourceManagerWebUI dir=in action=allow protocol=TCP localport=8088;
+            netsh advfirewall firewall add rule name=HDP_ResourceManager dir=in action=allow protocol=TCP localport=8032;
+            netsh advfirewall firewall add rule name=HDP_NodeManagerWebUI dir=in action=allow protocol=TCP localport=50060;
+            netsh advfirewall firewall add rule name=HDP_JobHistoryWebUI dir=in action=allow protocol=TCP localport=51111;
+            netsh advfirewall firewall add rule name=HDP_HIveServer2 dir=in action=allow protocol=TCP localport=10001;
+            netsh advfirewall firewall add rule name=HDP_HiveServer dir=in action=allow protocol=TCP localport=10000;
+            netsh advfirewall firewall add rule name=HDP_HiveMetastore dir=in action=allow protocol=TCP localport=9083;
+            netsh advfirewall firewall add rule name=HDP_WebHCatServer dir=in action=allow protocol=TCP localport=50111;
+            netsh advfirewall firewall add rule name=HDP_HMaster dir=in action=allow protocol=TCP localport=60000;
+            netsh advfirewall firewall add rule name=HDP_HMasterWebUI dir=in action=allow protocol=TCP localport=60010;
+            netsh advfirewall firewall add rule name=HDP_RegionServer dir=in action=allow protocol=TCP localport=60020;
+            netsh advfirewall firewall add rule name=HDP_RegionServer_http dir=in action=allow protocol=TCP localport=60030;
+            netsh advfirewall firewall add rule name=HDP_Zookeper_PeerPort dir=in action=allow protocol=TCP localport=2888;
+            netsh advfirewall firewall add rule name=HDP_Zookeper_LeaderPort dir=in action=allow protocol=TCP localport=3888;
+            netsh advfirewall firewall add rule name=HDP_Zookeper_ClientPort dir=in action=allow protocol=TCP localport=2181;}
+INFO  2014-03-28 09:55:45,537 53798ms Global                 ExecuteRemote      - Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+
+INFO  2014-03-28 09:55:45,599 53860ms Global                 ExecuteRemote      - Running remote command: invoke-command -computername WINNODE4 -scriptblock {netsh advfirewall firewall add rule name=HDP_NameNodeWebUI_http dir=in action=allow protocol=TCP localport=50070;
+            netsh advfirewall firewall add rule name=HDP_NameNodeWebUI_https dir=in action=allow protocol=TCP localport=50470;
+            netsh advfirewall firewall add rule name=HDP_NameNodeMetadataService dir=in action=allow protocol=TCP localport=8020-9000;
+            netsh advfirewall firewall add rule name=HDP_DataNodeWebUI dir=in action=allow protocol=TCP localport=50075;
+            netsh advfirewall firewall add rule name=HDP_DataNodeSecureHTTP dir=in action=allow protocol=TCP localport=50475;
+            netsh advfirewall firewall add rule name=HDP_DataNodeDataTransfer dir=in action=allow protocol=TCP localport=50010;
+            netsh advfirewall firewall add rule name=HDP_DataNodeMetadataOps dir=in action=allow protocol=TCP localport=50020;
+            netsh advfirewall firewall add rule name=HDP_SecondaryNameNode dir=in action=allow protocol=TCP localport=50090;
+            netsh advfirewall firewall add rule name=HDP_ResourceManagerWebUI dir=in action=allow protocol=TCP localport=8088;
+            netsh advfirewall firewall add rule name=HDP_ResourceManager dir=in action=allow protocol=TCP localport=8032;
+            netsh advfirewall firewall add rule name=HDP_NodeManagerWebUI dir=in action=allow protocol=TCP localport=50060;
+            netsh advfirewall firewall add rule name=HDP_JobHistoryWebUI dir=in action=allow protocol=TCP localport=51111;
+            netsh advfirewall firewall add rule name=HDP_HIveServer2 dir=in action=allow protocol=TCP localport=10001;
+            netsh advfirewall firewall add rule name=HDP_HiveServer dir=in action=allow protocol=TCP localport=10000;
+            netsh advfirewall firewall add rule name=HDP_HiveMetastore dir=in action=allow protocol=TCP localport=9083;
+            netsh advfirewall firewall add rule name=HDP_WebHCatServer dir=in action=allow protocol=TCP localport=50111;
+            netsh advfirewall firewall add rule name=HDP_HMaster dir=in action=allow protocol=TCP localport=60000;
+            netsh advfirewall firewall add rule name=HDP_HMasterWebUI dir=in action=allow protocol=TCP localport=60010;
+            netsh advfirewall firewall add rule name=HDP_RegionServer dir=in action=allow protocol=TCP localport=60020;
+            netsh advfirewall firewall add rule name=HDP_RegionServer_http dir=in action=allow protocol=TCP localport=60030;
+            netsh advfirewall firewall add rule name=HDP_Zookeper_PeerPort dir=in action=allow protocol=TCP localport=2888;
+            netsh advfirewall firewall add rule name=HDP_Zookeper_LeaderPort dir=in action=allow protocol=TCP localport=3888;
+            netsh advfirewall firewall add rule name=HDP_Zookeper_ClientPort dir=in action=allow protocol=TCP localport=2181;}
+INFO  2014-03-28 09:55:47,614 55875ms Global                 ExecuteRemote      - Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+
+INFO  2014-03-28 09:55:47,677 55938ms Global                 ExecuteRemote      - Running remote command: invoke-command -computername WINNODE5 -scriptblock {netsh advfirewall firewall add rule name=HDP_NameNodeWebUI_http dir=in action=allow protocol=TCP localport=50070;
+            netsh advfirewall firewall add rule name=HDP_NameNodeWebUI_https dir=in action=allow protocol=TCP localport=50470;
+            netsh advfirewall firewall add rule name=HDP_NameNodeMetadataService dir=in action=allow protocol=TCP localport=8020-9000;
+            netsh advfirewall firewall add rule name=HDP_DataNodeWebUI dir=in action=allow protocol=TCP localport=50075;
+            netsh advfirewall firewall add rule name=HDP_DataNodeSecureHTTP dir=in action=allow protocol=TCP localport=50475;
+            netsh advfirewall firewall add rule name=HDP_DataNodeDataTransfer dir=in action=allow protocol=TCP localport=50010;
+            netsh advfirewall firewall add rule name=HDP_DataNodeMetadataOps dir=in action=allow protocol=TCP localport=50020;
+            netsh advfirewall firewall add rule name=HDP_SecondaryNameNode dir=in action=allow protocol=TCP localport=50090;
+            netsh advfirewall firewall add rule name=HDP_ResourceManagerWebUI dir=in action=allow protocol=TCP localport=8088;
+            netsh advfirewall firewall add rule name=HDP_ResourceManager dir=in action=allow protocol=TCP localport=8032;
+            netsh advfirewall firewall add rule name=HDP_NodeManagerWebUI dir=in action=allow protocol=TCP localport=50060;
+            netsh advfirewall firewall add rule name=HDP_JobHistoryWebUI dir=in action=allow protocol=TCP localport=51111;
+            netsh advfirewall firewall add rule name=HDP_HIveServer2 dir=in action=allow protocol=TCP localport=10001;
+            netsh advfirewall firewall add rule name=HDP_HiveServer dir=in action=allow protocol=TCP localport=10000;
+            netsh advfirewall firewall add rule name=HDP_HiveMetastore dir=in action=allow protocol=TCP localport=9083;
+            netsh advfirewall firewall add rule name=HDP_WebHCatServer dir=in action=allow protocol=TCP localport=50111;
+            netsh advfirewall firewall add rule name=HDP_HMaster dir=in action=allow protocol=TCP localport=60000;
+            netsh advfirewall firewall add rule name=HDP_HMasterWebUI dir=in action=allow protocol=TCP localport=60010;
+            netsh advfirewall firewall add rule name=HDP_RegionServer dir=in action=allow protocol=TCP localport=60020;
+            netsh advfirewall firewall add rule name=HDP_RegionServer_http dir=in action=allow protocol=TCP localport=60030;
+            netsh advfirewall firewall add rule name=HDP_Zookeper_PeerPort dir=in action=allow protocol=TCP localport=2888;
+            netsh advfirewall firewall add rule name=HDP_Zookeper_LeaderPort dir=in action=allow protocol=TCP localport=3888;
+            netsh advfirewall firewall add rule name=HDP_Zookeper_ClientPort dir=in action=allow protocol=TCP localport=2181;}
+INFO  2014-03-28 09:55:49,677 57937ms Global                 ExecuteRemote      - Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+Ok.
+
+
+INFO  2014-03-28 09:55:49,693 57954ms Global                 yInstallationFiles - WINNODE3 file copy started with thread: 0
+INFO  2014-03-28 09:55:50,615 58876ms Global                 yInstallationFiles - WINNODE4 file copy started with thread: 1
+INFO  2014-03-28 09:55:51,129 59390ms Global                 yInstallationFiles - WINNODE5 file copy started with thread: 2
+INFO  2014-04-08 17:20:43,058 977151318ms Global                 yInstallationFiles - WINNODE4 uninstall ended with thread: 1
+INFO  2014-04-08 17:22:10,448 977238709ms Global                 yInstallationFiles - WINNODE5 uninstall ended with thread: 2
+INFO  2014-04-08 17:24:43,184 977391445ms Global                 ExecuteRemote      - Running remote command: invoke-command -computername WINNODE3 -scriptblock {New-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\services\TCPIP6\Parameters -Name DisabledComponents -PropertyType DWord -Value 0xffffffff}
+INFO  2014-04-08 17:24:43,184 977391445ms Global                 yInstallationFiles - WINNODE3 uninstall ended with thread: 0
+INFO  2014-04-08 17:24:44,996 977393257ms Global                 ExecuteRemote      - 
+
+DisabledComponents : 4294967295
+PSPath             : Microsoft.PowerShell.Core\Registry::HKEY_LOCAL_MACHINE\SYST
+                     EM\CurrentControlSet\services\TCPIP6\Parameters
+PSParentPath       : Microsoft.PowerShell.Core\Registry::HKEY_LOCAL_MACHINE\SYST
+                     EM\CurrentControlSet\services\TCPIP6
+PSChildName        : Parameters
+PSDrive            : HKLM
+PSProvider         : Microsoft.PowerShell.Core\Registry
+PSComputerName     : WINNODE3
+RunspaceId         : e93f0dd9-c2c8-4f44-bb53-b4e94637bd0a
+
+
+
+
+INFO  2014-04-08 17:24:45,089 977393350ms Global                 ExecuteRemote      - Running remote command: invoke-command -computername WINNODE4 -scriptblock {New-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\services\TCPIP6\Parameters -Name DisabledComponents -PropertyType DWord -Value 0xffffffff}
+INFO  2014-04-08 17:24:46,027 977394288ms Global                 ExecuteRemote      - 
+
+DisabledComponents : 4294967295
+PSPath             : Microsoft.PowerShell.Core\Registry::HKEY_LOCAL_MACHINE\SYST
+                     EM\CurrentControlSet\services\TCPIP6\Parameters
+PSParentPath       : Microsoft.PowerShell.Core\Registry::HKEY_LOCAL_MACHINE\SYST
+                     EM\CurrentControlSet\services\TCPIP6
+PSChildName        : Parameters
+PSDrive            : HKLM
+PSProvider         : Microsoft.PowerShell.Core\Registry
+PSComputerName     : WINNODE4
+RunspaceId         : 56ef56b9-1710-43e4-bd90-e9d172dce7f1
+
+
+
+
+INFO  2014-04-08 17:24:48,106 977396367ms Global                 ExecuteRemote      - Running remote command: invoke-command -computername WINNODE5 -scriptblock {New-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\services\TCPIP6\Parameters -Name DisabledComponents -PropertyType DWord -Value 0xffffffff}
+INFO  2014-04-08 17:24:48,761 977397022ms Global                 ExecuteRemote      - 
+
+DisabledComponents : 4294967295
+PSPath             : Microsoft.PowerShell.Core\Registry::HKEY_LOCAL_MACHINE\SYST
+                     EM\CurrentControlSet\services\TCPIP6\Parameters
+PSParentPath       : Microsoft.PowerShell.Core\Registry::HKEY_LOCAL_MACHINE\SYST
+                     EM\CurrentControlSet\services\TCPIP6
+PSChildName        : Parameters
+PSDrive            : HKLM
+PSProvider         : Microsoft.PowerShell.Core\Registry
+PSComputerName     : WINNODE5
+RunspaceId         : c86eb411-1817-4504-84e6-55ea6e6629d6
+
+
+
+
+INFO  2014-04-08 17:24:48,777 977397038ms Global                 Install            - WINNODE3 install started with thread: 0
+INFO  2014-04-08 17:24:48,799 977397060ms Global                 Install            - WINNODE4 install started with thread: 1
+INFO  2014-04-08 17:24:48,799 977397060ms Global                 Install            - WINNODE5 install started with thread: 2
+INFO  2014-04-08 17:24:50,871 977399131ms Global                 ExecuteRemote      - Running remote command: invoke-command -computername WINNODE5 -scriptblock {msiexec /qn /norestart /log C:\HDP\WinHDP\Logs\python.log /i C:\HDP\WinHDP\Files\python-2.7.6.amd64.msi INSTALLLOCATION="C:\Python27" | Wait-Process; $env:Path += ";C:\Python27"; [Environment]::SetEnvironmentVariable("Path", $env:Path, [System.EnvironmentVariableTarget]::Machine)}
+INFO  2014-04-08 17:24:50,934 977399195ms Global                 ExecuteRemote      - Running remote command: invoke-command -computername WINNODE4 -scriptblock {msiexec /qn /norestart /log C:\HDP\WinHDP\Logs\python.log /i C:\HDP\WinHDP\Files\python-2.7.6.amd64.msi INSTALLLOCATION="C:\Python27" | Wait-Process; $env:Path += ";C:\Python27"; [Environment]::SetEnvironmentVariable("Path", $env:Path, [System.EnvironmentVariableTarget]::Machine)}
+INFO  2014-04-08 17:24:52,778 977401039ms Global                 ExecuteRemote      - Running remote command: invoke-command -computername WINNODE3 -scriptblock {msiexec /qn /norestart /log C:\HDP\WinHDP\Logs\python.log /i C:\HDP\WinHDP\Files\python-2.7.6.amd64.msi INSTALLLOCATION="C:\Python27" | Wait-Process; $env:Path += ";C:\Python27"; [Environment]::SetEnvironmentVariable("Path", $env:Path, [System.EnvironmentVariableTarget]::Machine)}
+INFO  2014-04-08 17:25:03,918 977412178ms Global                 ExecuteRemote      - 
+INFO  2014-04-08 17:25:04,387 977412648ms Global                 ExecuteRemote      - Running remote command: invoke-command -computername WINNODE5 -scriptblock {C:\HDP\WinHDP\Files\vcredist_x64.exe /q /norestart /log C:\HDP\WinHDP\Logs\vcredist.log | Wait-Process}
+INFO  2014-04-08 17:25:04,434 977412694ms Global                 ExecuteRemote      - 
+INFO  2014-04-08 17:25:04,512 977412773ms Global                 ExecuteRemote      - Running remote command: invoke-command -computername WINNODE4 -scriptblock {C:\HDP\WinHDP\Files\vcredist_x64.exe /q /norestart /log C:\HDP\WinHDP\Logs\vcredist.log | Wait-Process}
+INFO  2014-04-08 17:25:10,324 977418585ms Global                 ExecuteRemote      - 
+INFO  2014-04-08 17:25:14,575 977422835ms Global                 ExecuteRemote      - Running remote command: invoke-command -computername WINNODE5 -scriptblock {C:\HDP\WinHDP\Files\jdk-6u31-windows-x64.exe /qn /norestart /log C:\HDP\WinHDP\Logs\java-jdk.log  INSTALLDIR=C:\java\jdk1.6.0_31 | Wait-Process; $env:JAVA_HOME += "C:\java\jdk1.6.0_31"; [Environment]::SetEnvironmentVariable("JAVA_HOME", $env:JAVA_HOME, [System.EnvironmentVariableTarget]::Machine)}
+INFO  2014-04-08 17:25:14,699 977422960ms Global                 ExecuteRemote      - 
+INFO  2014-04-08 17:25:15,371 977423632ms Global                 ExecuteRemote      - Running remote command: invoke-command -computername WINNODE4 -scriptblock {C:\HDP\WinHDP\Files\jdk-6u31-windows-x64.exe /qn /norestart /log C:\HDP\WinHDP\Logs\java-jdk.log  INSTALLDIR=C:\java\jdk1.6.0_31 | Wait-Process; $env:JAVA_HOME += "C:\java\jdk1.6.0_31"; [Environment]::SetEnvironmentVariable("JAVA_HOME", $env:JAVA_HOME, [System.EnvironmentVariableTarget]::Machine)}
+INFO  2014-04-08 17:25:15,388 977423648ms Global                 ExecuteRemote      - 
+INFO  2014-04-08 17:25:19,891 977428152ms Global                 ExecuteRemote      - Running remote command: invoke-command -computername WINNODE3 -scriptblock {C:\HDP\WinHDP\Files\vcredist_x64.exe /q /norestart /log C:\HDP\WinHDP\Logs\vcredist.log | Wait-Process}
+INFO  2014-04-08 17:25:26,340 977434601ms Global                 ExecuteRemote      - 
+INFO  2014-04-08 17:25:28,433 977436694ms Global                 ExecuteRemote      - Running remote command: invoke-command -computername WINNODE3 -scriptblock {C:\HDP\WinHDP\Files\jdk-6u31-windows-x64.exe /qn /norestart /log C:\HDP\WinHDP\Logs\java-jdk.log  INSTALLDIR=C:\java\jdk1.6.0_31 | Wait-Process; $env:JAVA_HOME += "C:\java\jdk1.6.0_31"; [Environment]::SetEnvironmentVariable("JAVA_HOME", $env:JAVA_HOME, [System.EnvironmentVariableTarget]::Machine)}
+INFO  2014-04-08 17:25:43,027 977451288ms Global                 ExecuteRemote      - 
+INFO  2014-04-08 17:25:45,121 977453382ms Global                 ExecuteRemote      - Running remote command: invoke-command -computername WINNODE5 -scriptblock {msiexec /i "C:\HDP\WinHDP\Files\hdp-2.0.6.0.winpkg.msi" /lv C:\HDP\WinHDP\Logs"\HDPinstall.log" HDP_LAYOUT="C:\HDP\WinHDP\Files\clusterproperties.txt" HDP_DIR="C:\HDP\hadoop" DESTROY_DATA="yes" HDP_USER_PASSWORD="HortonworkS4554$" | Wait-Process}
+INFO  2014-04-08 17:25:45,152 977453413ms Global                 ExecuteRemote      - 
+INFO  2014-04-08 17:25:47,043 977455304ms Global                 ExecuteRemote      - Running remote command: invoke-command -computername WINNODE4 -scriptblock {msiexec /i "C:\HDP\WinHDP\Files\hdp-2.0.6.0.winpkg.msi" /lv C:\HDP\WinHDP\Logs"\HDPinstall.log" HDP_LAYOUT="C:\HDP\WinHDP\Files\clusterproperties.txt" HDP_DIR="C:\HDP\hadoop" DESTROY_DATA="yes" HDP_USER_PASSWORD="HortonworkS4554$" | Wait-Process}
+INFO  2014-04-08 17:26:21,387 977489648ms Global                 ExecuteRemote      - 
+INFO  2014-04-08 17:26:23,574 977491835ms Global                 ExecuteRemote      - Running remote command: invoke-command -computername WINNODE3 -scriptblock {msiexec /i "C:\HDP\WinHDP\Files\hdp-2.0.6.0.winpkg.msi" /lv C:\HDP\WinHDP\Logs"\HDPinstall.log" HDP_LAYOUT="C:\HDP\WinHDP\Files\clusterproperties.txt" HDP_DIR="C:\HDP\hadoop" DESTROY_DATA="yes" HDP_USER_PASSWORD="HortonworkS4554$" | Wait-Process}
+INFO  2014-04-08 17:29:29,137 977677398ms Global                 ExecuteRemote      - 
+INFO  2014-04-08 17:29:29,137 977677398ms Global                 Install            - WINNODE4 install ended with thread: 1
+INFO  2014-04-08 17:29:34,340 977682601ms Global                 ExecuteRemote      - 
+INFO  2014-04-08 17:29:34,340 977682601ms Global                 Install            - WINNODE5 install ended with thread: 2
+INFO  2014-04-08 17:32:28,778 977857039ms Global                 ExecuteRemote      - 
+INFO  2014-04-08 17:32:28,778 977857039ms Global                 Install            - WINNODE3 install ended with thread: 0
+INFO  2014-04-19 15:49:02,656  5125ms Global                 MainOptions        - HDP Uninstall starting...
+INFO  2014-04-19 15:49:02,728  5196ms Global                 HDPInstall         - HDP Install starting...
+INFO  2014-04-19 15:49:03,501  5969ms Global                 ExecuteRemote      - Running remote command: invoke-command -computername WINNODE2 -scriptblock {Set-item wsman:localhost\client\trustedhosts -value "WINNODE3,WINNODE4" -force;Get-item wsman:localhost\client\trustedhosts}
+INFO  2014-04-19 15:49:04,577  7045ms Global                 ExecuteRemote      - 
+
+   WSManConfig: Microsoft.WSMan.Management\WSMan::localhost\Client
+
+Type            Name                           SourceOfValue   Value    PSComput
+                                                                        erName  
+----            ----                           -------------   -----    --------
+System.String   TrustedHosts                                   WINNO... WINNODE2
+
+
+

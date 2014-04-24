@@ -18,6 +18,7 @@ namespace WinHDP
         static readonly string _HDPDir;
         static readonly string _clusterProperties;
         static readonly string _hadoopPassword;
+        static readonly string _knoxMasterKey;
         static readonly bool _enableFirewall;
         static readonly string _hdpInstallFiles;
         static readonly string _hdpInstallLogs;
@@ -36,6 +37,7 @@ namespace WinHDP
             _HDPDir = ConfigurationManager.AppSettings["HDPDir"];
             _clusterProperties = ConfigurationManager.AppSettings["ClusterProperties"];
             _hadoopPassword = ConfigurationManager.AppSettings["HadoopPassword"];
+            _knoxMasterKey = ConfigurationManager.AppSettings["KnoxMasterKey"];
             _enableFirewall = Convert.ToBoolean(ConfigurationManager.AppSettings["EnableFirewall"]);
             _powershell3 = ConfigurationManager.AppSettings["Powershell3"];
             _restartForIPV6 = Convert.ToBoolean(ConfigurationManager.AppSettings["RestartForIPV6"]);
@@ -90,6 +92,11 @@ namespace WinHDP
         public static string HadoopPassword
         {
             get { return _hadoopPassword; }
+        }
+
+        public static string KnoxMasterKey
+        {
+            get { return _knoxMasterKey; }
         }
 
         public static bool EnableFirewall

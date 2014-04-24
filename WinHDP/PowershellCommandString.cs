@@ -67,7 +67,10 @@ namespace WinHDP
                     + Configuration.GetRemoteConfiguration(CommandName.HDP_Install) 
                     + @""" /lv " + _installLog + @"""\HDPinstall.log"" HDP_LAYOUT="""
                     + Path.Combine(_installFile, Path.GetFileName(Configuration.ClusterProperties))+@""" HDP_DIR="""
-                    + Configuration.HDPDir + @"\hadoop"" DESTROY_DATA=""yes"" HDP_USER_PASSWORD=""" + Configuration.HadoopPassword 
+                    + Configuration.HDPDir + @"\hadoop"" DESTROY_DATA=""yes"" HDP_USER_PASSWORD=""" + Configuration.HadoopPassword
+                    + (String.IsNullOrEmpty(ClusterConfiguration.Get()["KNOX_HOST"]) 
+                        ? "" 
+                        : @""" KNOX_MASTER_SECRET=""" + Configuration.KnoxMasterKey)
                     + @""" | Wait-Process";
             }
         }
