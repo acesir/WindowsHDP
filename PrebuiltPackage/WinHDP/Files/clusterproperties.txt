@@ -1,4 +1,3 @@
-
 #Log directory
 HDP_LOG_DIR=c:\hadoop\logs
 
