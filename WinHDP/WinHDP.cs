@@ -98,6 +98,11 @@ namespace WinHDP
                 HostPreparation.ConfigurePorts(ps, true);
                 CopyFiles();
                 HostPreparation.DisableIPv6(ps);
+                Console.WriteLine("");
+                Console.WriteLine("This pause is added if any manual configurations need to be performed on the cluster nodes " +
+                    "prior to installation of HDP. Once finished hit any key to continue with the installation..");
+                Console.ReadKey();
+                Console.WriteLine("");
                 ApplicationInstallation(ps);
                 HostPreparation.EnableFirewall(ps);
                 HostPreparation.StartServices(ps);
