@@ -2,7 +2,13 @@
 HDP_LOG_DIR=c:\hadoop\logs
 
 #Data directory
-HDP_DATA_DIR=c:\hdp\data
+HDP_DATA_DIR=c:\hdpdata
+
+#Namenode Data directory
+HDFS_NAMENODE_DATA_DIR=c:\hdpdatann
+
+#Datanode Data directory
+HDFS_DATANODE_DATA_DIR=c:\hdpdatadn
 
 #hosts
 NAMENODE_HOST=WINNODE3
