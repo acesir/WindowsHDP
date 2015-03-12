@@ -63,15 +63,19 @@ namespace WinHDP
             get
             {
                 return
-                    @"msiexec /i """ 
-                    + Configuration.GetRemoteConfiguration(CommandName.HDP_Install) 
+                    @"msiexec /i """
+                    + Configuration.GetRemoteConfiguration(CommandName.HDP_Install)
                     + @""" /lv " + _installLog + @"""\HDPinstall.log"" HDP_LAYOUT="""
-                    + Path.Combine(_installFile, Path.GetFileName(Configuration.ClusterProperties))+@""" HDP_DIR="""
+                    + Path.Combine(_installFile, Path.GetFileName(Configuration.ClusterProperties)) + @""" HDP_DIR="""
                     + Configuration.HDPDir + @"\hadoop"" DESTROY_DATA=""yes"" HDP_USER_PASSWORD=""" + Configuration.HadoopPassword
-                    + (String.IsNullOrEmpty(ClusterConfiguration.Get()["KNOX_HOST"]) 
-                        ? "" 
-                        : @""" KNOX_MASTER_SECRET=""" + Configuration.KnoxMasterKey)
-                    + @""" | Wait-Process";
+                    + (String.IsNullOrEmpty(ClusterConfiguration.Get()["KNOX_HOST"])
+                        ? "KNOX=" + @"""NO"""
+                        : @""" KNOX_MASTER_SECRET=""" + Configuration.KnoxMasterKey) + @""" "
+                    + (String.IsNullOrEmpty(ClusterConfiguration.Get()["RANGER"])
+                        ? "RANGER=" + @"""NO"""
+                        : @"""RANGER=""" + Configuration.KnoxMasterKey)
+                    + @""
+                    + " | Wait-Process";
             }
         }
 

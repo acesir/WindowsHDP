@@ -35,6 +35,7 @@ namespace WinHDP
                 hostServices.Add("KNOX_HOST", "");
                 hostServices.Add("SLAVE_HOSTS", "");
                 hostServices.Add("HOSTS", "");
+                hostServices.Add("RANGER", "");
 
                 while (!sr.EndOfStream)
                 {
