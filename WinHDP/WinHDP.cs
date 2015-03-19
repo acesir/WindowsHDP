@@ -105,6 +105,10 @@ namespace WinHDP
                 Console.WriteLine("");
                 ApplicationInstallation(ps);
                 HostPreparation.EnableFirewall(ps);
+                Console.WriteLine("");
+                Console.WriteLine("This pause is added if any manual jars need to be added to the hadoop libraries. An example is adding SQL Server jdbc for SQL Server metastores..");
+                Console.ReadKey();
+                Console.WriteLine("");
                 HostPreparation.StartServices(ps);
                 HostPreparation.RunSmokeTests(ps);
             }
