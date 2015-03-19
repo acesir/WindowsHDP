@@ -54,7 +54,7 @@ namespace WinHDP
                 return
                     Configuration.GetRemoteConfiguration(CommandName.JavaInstall)
                     + @" /qn /norestart /log " + _installLog
-                    + @"\java-jdk.log  INSTALLDIR=C:\java\jdk1.6.0_31 | Wait-Process; $env:JAVA_HOME += ""C:\java\jdk1.6.0_31""; [Environment]::SetEnvironmentVariable(""JAVA_HOME"", $env:JAVA_HOME, [System.EnvironmentVariableTarget]::Machine)";
+                    + @"\java-jdk.log  INSTALLDIR=C:\java\jdk1.7.0_75 | Wait-Process; $env:JAVA_HOME += ""C:\java\jdk1.7.0_75""; [Environment]::SetEnvironmentVariable(""JAVA_HOME"", $env:JAVA_HOME, [System.EnvironmentVariableTarget]::Machine)";
             }
         }
 
